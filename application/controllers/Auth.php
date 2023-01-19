@@ -31,21 +31,19 @@ class Auth extends CI_Controller
 					redirect('Welcome');
 				} else {
 					$this->session->set_userdata('login', TRUE);
-					if ($data['id_role'] === '1') { //Akses admin
-						$this->session->set_userdata('akses', 'Administrator');
+					if ($data['id_role'] === '1') { //Akses Super Admin
 						$this->session->set_userdata('ses_id_users', $data['id']);
 						$this->session->set_userdata('ses_nama', $data['name']);
 						$this->session->set_userdata('ses_email', $data['email']);
 						$this->session->set_userdata('ses_foto', $data['image']);
-					} elseif ($data['id_role'] === '2') { //akses Owner
-						$this->session->set_userdata('akses', 'Owner');
+					} elseif ($data['id_role'] === '2') { //akses USERS
 						$this->session->set_userdata('ses_id_users', $data['id']);
 						$this->session->set_userdata('ses_nama', $data['name']);
 						$this->session->set_userdata('ses_email', $data['email']);
 						$this->session->set_userdata('ses_foto', $data['image']);
 					}
 					$this->session->set_flashdata('alert', 'login');
-					redirect('Admin');
+					redirect('Home');
 				}
 			} else {
 				$this->session->set_flashdata('alert', 'error');
