@@ -1,5 +1,0 @@
----
-deployment:
-tasks:
-- export DEPLOYPATH=/home/usercpanel/public_html/finance.danurm.my.id/git
-- /bin/cp -r * $DEPLOYPATH

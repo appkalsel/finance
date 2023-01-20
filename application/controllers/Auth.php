@@ -6,10 +6,9 @@ class Auth extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		// if ($this->session->userdata('login')) {
-		// redirect(base_url('Home'));
-		// }
-		$this->load->model('m_auth');
+		if ($this->session->userdata('login')) {
+			redirect(base_url('Home'));
+		}
 	}
 
 	public function index()
@@ -17,7 +16,7 @@ class Auth extends CI_Controller
 		$this->load->view('auth_login');
 	}
 
-	public function login()
+	public function auth_login()
 	{
 		$email = htmlspecialchars($this->input->post('email', TRUE));
 		$password = htmlspecialchars($this->input->post('pw', TRUE));
@@ -32,7 +31,7 @@ class Auth extends CI_Controller
 					redirect('Welcome');
 				} else {
 					$this->session->set_userdata('login', TRUE);
-					if ($data['id_role'] === '1') { //Akses SUPER ADMIN
+					if ($data['id_role'] === '1') { //Akses Super Admin
 						$this->session->set_userdata('ses_id_users', $data['id']);
 						$this->session->set_userdata('ses_nama', $data['name']);
 						$this->session->set_userdata('ses_email', $data['email']);

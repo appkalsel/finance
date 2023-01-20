@@ -1,6 +1,6 @@
 <?php $this->load->view('file/header') ?>
 
-<body onload="alert_swal()">
+<body>
 
     <div class="container mt-5 w-50">
         <!-- Pills navs -->
@@ -17,18 +17,18 @@
         <!-- Pills content -->
         <div class="tab-content">
             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                <form action="<?= base_url('Auth/login') ?>" method="POST">
+                <form>
                     <p class="text-center">Please login:</p>
 
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <input type="email" name="email" id="loginName" class="form-control" />
+                        <input type="email" id="loginName" class="form-control" />
                         <label class="form-label" for="loginName">Email or username</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                        <input type="password" name="pw" id="loginPassword" class="form-control" />
+                        <input type="password" id="loginPassword" class="form-control" />
                         <label class="form-label" for="loginPassword">Password</label>
                     </div>
 
@@ -50,6 +50,11 @@
 
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                    <!-- Register buttons -->
+                    <!-- <div class="text-center">
+                    <p>Not a member? <a href="#!">Register</a></p>
+                </div> -->
                 </form>
             </div>
             <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
